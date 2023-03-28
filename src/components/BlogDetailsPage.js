@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react' 
+import {  } from 'react-router-dom'
 
-const BlogDetailsPage = () => {
+const BlogDetailsPage = ({match}) => {
+
+  
   return (
-    <div>BlogDetailsPage</div>
+
+   
+    <div>Blog Details Page : {match.params.id}
+      
+    </div>
   )
-}
+} 
 
 export default BlogDetailsPage
