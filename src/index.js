@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import AppRouter from './routers/AppRouter';
 
 
+
 const initialState = {count : 0}
 
 const store = createStore((state = initialState,action )=>{
@@ -31,20 +32,23 @@ const incrementBy = typeof action.incrementBy === 'number'? action.incrementBy :
     }
 
 });
-console.log (store.getState());
 
-store.dispatch ({
-    type : 'INCREMENT',
-    incrementBy : 10
-})
-store.dispatch ({
-    type : 'INCREMENT'
+store.subscribe(()=>{
+    console.log(store.getState());
 })
 
-store.dispatch ({
-    type : 'DECREMENT'
+
+store.dispatch({
+    type: 'INCREMENT',
+    incrementBy: 10
+    
 })
-console.log (store.getState()); 
+
+store.dispatch({
+    type: 'DECREMENT',
+    
+    
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
