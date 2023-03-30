@@ -4,39 +4,39 @@ import './App.css';
 import { createStore , combineReducers } from 'redux';
 import reportWebVitals from './reportWebVitals';
 import AppRouter from './routers/AppRouter';
-
-const state = {
-
-    blogs : [
-        {
-            id: 1,
-            title: 'Blog Title 1',
-            description : 'blog description 1',
-            dateAdded : 0
-        }
-    ],
-
-    auth : {
-             userid: 1,
-             userName:'Seref Badi',
-             email : 'serefb80@gmail.com'
-
-    }
-}   
+import { v4 as uuid} from 'uuid';
+ 
 const blogState = [
     {
-        id: 1,
-        title: 'Blog Title 1',
-        description : 'blog description 1',
-        dateAdded : 0
+        id: uuid(),
+        title: title,
+        description : description,
+        dateAdded : dateAdded
     }
 ];
 const blogReducers = (state = blogState,action) => {
     switch (action.type) {
         default : return state;
 
-    }
+        }
 }
+
+const addBlog = ({title = '', description ='', dateAdded = 0})=> (
+    {
+        type: 'ADD BLOG',       
+    blog : { 
+        id: 2,
+        title: 'Blog title 2',
+        description : 'Blog Description 2',
+        dateAdded : 0
+
+    }
+
+    }
+)
+
+
+
 const authReducers = (state=authState,action)=> {
     switch (action.type){
 default : return state
@@ -55,8 +55,8 @@ const store =createStore(
         }
     )
 );
-
-console.log(store.getState());
+store.subscribe(()=>{console.log(store.getState());
+})
 
 
 
