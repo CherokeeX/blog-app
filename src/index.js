@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './App.css';
-import { createStore } from 'redux';
+import { createStore , combineReducers } from 'redux';
 import reportWebVitals from './reportWebVitals';
 import AppRouter from './routers/AppRouter';
 
@@ -23,15 +23,42 @@ const state = {
 
     }
 }   
-const blogState = [];
+const blogState = [
+    {
+        id: 1,
+        title: 'Blog Title 1',
+        description : 'blog description 1',
+        dateAdded : 0
+    }
+];
 const blogReducers = (state = blogState,action) => {
     switch (action.type) {
         default : return state;
 
     }
 }
+const authReducers = (state=authState,action)=> {
+    switch (action.type){
+default : return state
 
-const store =createStore(blogReducers)
+    }
+};
+
+const authState = [
+    
+];
+const store =createStore(
+    combineReducers (
+        {
+            blogs : blogReducers,
+            auth : authReducers
+        }
+    )
+);
+
+console.log(store.getState());
+
+
 
 
 
