@@ -5,50 +5,36 @@ import { createStore } from 'redux';
 import reportWebVitals from './reportWebVitals';
 import AppRouter from './routers/AppRouter';
 
+const state = {
 
-
-const initialState = {count : 0}
-
-const store = createStore((state = initialState,action )=>{
-const incrementBy = typeof action.incrementBy === 'number'? action.incrementBy : 1 ;
-
-    switch (action.type){
-
-        case 'INCREMENT': 
-        return {
-            count: state.count+incrementBy
+    blogs : [
+        {
+            id: 1,
+            title: 'Blog Title 1',
+            description : 'blog description 1',
+            dateAdded : 0
         }
-        case 'DECREMENT':
-            return {
-                count: state.count-1
-            }
-            case 'RESET':
-            return {
-                count: 0
-            }
-        default : 
-        return state
+    ],
+
+    auth : {
+             userid: 1,
+             userName:'Seref Badi',
+             email : 'serefb80@gmail.com'
 
     }
+}   
+const blogState = [];
+const blogReducers = (state = blogState,action) => {
+    switch (action.type) {
+        default : return state;
 
-});
+    }
+}
 
-store.subscribe(()=>{
-    console.log(store.getState());
-})
+const store =createStore(blogReducers)
 
 
-store.dispatch({
-    type: 'INCREMENT',
-    incrementBy: 10
-    
-})
 
-store.dispatch({
-    type: 'DECREMENT',
-    
-    
-})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
