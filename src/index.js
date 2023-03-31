@@ -17,36 +17,43 @@ const addBlog = ({title = '', description ='', dateAdded = 0})=> (
         dateAdded : dateAdded
 
     }
-
     }
 )
 
-
+const removeBlog = ({id})=> (
+    {
+        type: 'REMOVE',
+        id : id
+    }
+)
 const blogState = [];
-
 
 const blogReducers = (state = blogState,action) => {
     switch (action.type) {
         case  'ADD BLOG' : return [
             ...state, action.blog
         ]
+        case 'REMOVE_BLOG' : 
+
+        return state.filter(({id})=>{
+            return  id !== action.id
+        })
+        
+
+
         default : return state;
 
         }
 }
-
-
 const  authState = {};
 
 
 const authReducers = (state=authState,action)=> {
     switch (action.type){
-       
-default : return state
+       default : return state
 
     }
 };
-
 
 const store =createStore(
     combineReducers (
@@ -59,10 +66,11 @@ const store =createStore(
 store.subscribe(()=>{console.log(store.getState());
 })
 
-store.dispatch (addBlog({title:'Blog title 1' , description: 'Blog Description 1' }))
-store.dispatch (addBlog({title:'Blog title 2' , description: 'Blog Description 2', dateAdded: Date.now() }))
+const blog1 =store.dispatch (addBlog({title:'Blog title 1' , description: 'Blog Description 1' }));
+const blog2 = store.dispatch (addBlog({title:'Blog title 2' , description: 'Blog Description 2', dateAdded: Date.now() }))
 
 
+store.dispatch(removeBlog({id : blog1.blog.id}))
 
 
 
