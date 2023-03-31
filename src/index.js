@@ -1,92 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './App.css';
-import { createStore , combineReducers } from 'redux';
+import configureStores from './stores/configureStores';
 import reportWebVitals from './reportWebVitals';
 import AppRouter from './routers/AppRouter';
-import { v4 as uuid} from 'uuid';
- 
-
-const addBlog = ({title = '', description ='', dateAdded = 0})=> (
-    {
-        type: 'ADD BLOG',       
-    blog : { 
-        id: uuid(),
-        title: title,
-        description : description,
-        dateAdded : dateAdded
-
-    }
-    }
-)
-
-const removeBlog = ({id})=> (
-    {
-        type: 'REMOVE',
-        id : id
-    }
-)
-
-const  editBlog= (id , updates)=> ({
-type : 'EDIT_BLOG',
-id ,
-updates
-
-})
-const blogState = [];
-
-const blogReducers = (state = blogState,action) => {
-    switch (action.type) {
-        case  'ADD BLOG' : return [
-            ...state, action.blog
-        ]
-        case 'REMOVE_BLOG' : 
-
-        return state.filter(({id})=>{
-            return  id !== action.id
-        })
-
-        case 'EDIT_BLOG' : 
-        return  state.map ((blog)=>{
-            if (blog.id===action.id){
-                 return {...blog, ...action.updates}
-            } else {
-                return blog
-            }
+import {addBlog,removeBlog,editBlog} from './actions/blogs'
 
 
-        })
-        
-        
 
-
-        default : return state;
-
-        }
-}
-const  authState = {};
-
-
-const authReducers = (state=authState,action)=> {
-    switch (action.type){
-       default : return state
-
-    }
-};
-
-const store =createStore(
-    combineReducers (
-        {
-            blogs : blogReducers,
-            auth : authReducers
-        }
-    )
-);
+const store = configureStores();
 store.subscribe(()=>{console.log(store.getState());
 })
 
 const blog1 =store.dispatch (addBlog({title:'Blog title 1' , description: 'Blog Description 1' }));
-const blog2 = store.dispatch (addBlog({title:'Blog title 2' , description: 'Blog Description 2', dateAdded: Date.now() }))
+const blog2 = store.dispatch (addBlog({title:'Blog title 2' , description: 'Blog Description 2', dateAdded: Date.now() }));
 
 
 store.dispatch(removeBlog({id : blog1.blog.id}))
