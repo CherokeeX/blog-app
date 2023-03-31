@@ -26,6 +26,13 @@ const removeBlog = ({id})=> (
         id : id
     }
 )
+
+const  editBlog= (id , updates)=> ({
+type : 'EDIT_BLOG',
+id ,
+updates
+
+})
 const blogState = [];
 
 const blogReducers = (state = blogState,action) => {
@@ -38,6 +45,18 @@ const blogReducers = (state = blogState,action) => {
         return state.filter(({id})=>{
             return  id !== action.id
         })
+
+        case 'EDIT_BLOG' : 
+        return  state.map ((blog)=>{
+            if (blog.id===action.id){
+                 return {...blog, ...action.updates}
+            } else {
+                return blog
+            }
+
+
+        })
+        
         
 
 
@@ -71,6 +90,8 @@ const blog2 = store.dispatch (addBlog({title:'Blog title 2' , description: 'Blog
 
 
 store.dispatch(removeBlog({id : blog1.blog.id}))
+store.dispatch(editBlog(blog2.blog.id , {title: 'Upgrated title info' , description: 'New description....',country: 'TURKEY'}))
+
 
 
 
