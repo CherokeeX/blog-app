@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import React from 'react'
 
- export const BlogList = (props)=> {
+const BlogList = (props)=> {
 
 
     return (

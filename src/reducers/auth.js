@@ -1,12 +1,11 @@
+const authState = {};
 
-const  authState = {};
-
-
-const authReducers = (state=authState,action)=> {
-    switch (action.type){
-       default : return state
-
+const authReducer = (state = authState, action) => {
+    switch (action.type) {
+        default:
+            return state
     }
-};
+}
 
-export default authReducers;
+
+export default authReducer;
