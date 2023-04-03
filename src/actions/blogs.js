@@ -18,7 +18,7 @@ export const addBlog = ({title = '', description ='', dateAdded = 0})=> (
 export const removeBlog = ({id})=> (
     {
         type: 'REMOVE',
-        id : id
+        id :id
     }
 )
 

@@ -23,7 +23,7 @@ const blog2 = store.dispatch(
   })
 );
 
-store.dispatch(removeBlog({ id: blog1.blog.id }));
+
 store.dispatch(
   editBlog(blog2.blog.id, {
     title: "Upgrated title info",
@@ -32,8 +32,13 @@ store.dispatch(
   })
 );
 
+  store.dispatch(removeBlog({id : blog1.blog.id}));
+
+
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Provider store={store}> <AppRouter />    </Provider>);
+root.render(<Provider store={store}><AppRouter /></Provider>);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

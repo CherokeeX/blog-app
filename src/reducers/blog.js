@@ -9,7 +9,7 @@ const blogReducers = (state = blogState,action) => {
         case 'REMOVE_BLOG' : 
 
         return state.filter(({id})=>{
-            return  id !== action.id;
+            return id !==action.id;
         })
 
         case 'EDIT_BLOG' : 
