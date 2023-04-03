@@ -6,11 +6,12 @@ const BlogListPage = () => {
     return (
         <div>
             <p> Blog Page</p>
-            <BlogList/>
+            <BlogList />
             <Link to="/blogs/1">Blog 1</Link>   
             <Link to="/blogs/2">Blog 2</Link>
         </div>
     )
 }
+
 
 export default BlogListPage

@@ -1,25 +1,20 @@
 import { connect } from "react-redux";
-import React from 'react'
+import React from "react";
+import BlogListItems from "./BlogListItems";
 
-const BlogList = (props)=> {
-
-
-    return (
-        <div>
-            {props.blogs.length}
-        </div>
-    )
-
-
-    
+const BlogList = (props) => {
+  return <>
+  <ul>
+    {props.blogs.map(blog =>{return <BlogListItems key={blog.id}  {...blog}/>})
+    }
+  </ul>
+  </>
 }
 
-const mapStateToProps = (state)=> {
+const mapStateToProps = (state) => {
+  return {
+    blogs: state.blogs,
+  };  
+};
 
-return {
-
-    blogs : state.blogs
-}
-}
-
-export default connect (mapStateToProps)(BlogList);
+export default connect(mapStateToProps)(BlogList);
