@@ -7,6 +7,7 @@ import ContactPage from '../components/ContactPage'
 import NotFoundPage from '../components/NotFoundPage'
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import AddBlogPAge from '../components/AddBlogPAge'
 
 const AppRouter = () => {
     return (
@@ -16,6 +17,7 @@ const AppRouter = () => {
                 <Switch>
                     <Route path="/" component={HomePage} exact/>
                     <Route path="/blogs" component={BlogListPage} exact/>
+                    <Route path="/create" component={AddBlogPAge} />
                     <Route path="/blogs/:id" component={BlogDetailsPage} />
                     <Route path="/contact" component={ContactPage} />
                     <Route component={NotFoundPage} />
