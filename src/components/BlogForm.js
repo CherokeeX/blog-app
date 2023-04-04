@@ -31,6 +31,7 @@ onDescriptionChange= (e)=> {
           <div>
             <textarea placeholder='Enter description' value={this.state.description} onChange={this.onDescriptionChange}></textarea>
           </div>
+          <button type="">ADD BLOG</button>
         </form>
       </div>
     )
