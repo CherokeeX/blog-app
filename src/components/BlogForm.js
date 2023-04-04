@@ -5,7 +5,7 @@ export default class BlogForm extends Component {
 state  = {
   title:'',
   description:'',
-  DateAdded: Date.now()
+  error:''
 }
 onTitleChange =(e)=>{
   const title = e.target.value;
@@ -23,10 +23,17 @@ onDescriptionChange= (e)=> {
 onSubmit=(e)=>{
   e.preventDefault();
   if(!this.state.title || !this.state.description){
-    console.log('error ')
+    this.setState({error: 'Fill the Blanks Please'});
   }else{
-    console.log(this.state.title, this.state.description)
-    console.log('submited');  
+    this.setState({error: ''});
+    this.props.onSubmite({
+      title:this.state.title,
+      description:this.state.description,
+      dateAdded : Date.now()
+      
+
+    })
+    
   }
 
 }
@@ -34,6 +41,7 @@ onSubmit=(e)=>{
 
     return (
       <div>
+        {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.onSubmit}>
           <div>
             <input  placeholder='fill Title' value={this.state.title} onChange={this.onTitleChange}/>
