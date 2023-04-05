@@ -35,7 +35,13 @@ const firebaseConfig = {
    const database = firebase.database();
 
    database.ref().set({
-    title: 'BLOK TITLE DENEME'
+    title: 'BLOK TITLE DENEME',
+    ADRES : 'CEMAL PASA MH ',
+    Auther:  {
+      isim : "seref",
+      soyisim : 'Badi '
+    }
+    
    });
 
 
