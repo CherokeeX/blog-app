@@ -8,6 +8,7 @@ import NotFoundPage from '../components/NotFoundPage'
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import AddBlogPAge from '../components/AddBlogPAge'
+import EditBlogPage from '../components/EditBlogPage'
 
 const AppRouter = () => {
     return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
                     <Route path="/" component={HomePage} exact/>
                     <Route path="/blogs" component={BlogListPage} exact/>
                     <Route path="/create" component={AddBlogPAge} />
+                    <Route path="/edit/:id" component={EditBlogPage} />
                     <Route path="/blogs/:id" component={BlogDetailsPage} />
                     <Route path="/contact" component={ContactPage} />
                     <Route component={NotFoundPage} />
