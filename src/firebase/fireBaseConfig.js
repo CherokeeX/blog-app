@@ -10,4 +10,7 @@ const firebaseConfig = {
   };
   
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
+
+  const database = firebase.database();
+  database.ref().set({title : "blog title 1"}); 
