@@ -1,4 +1,8 @@
-import firebase from "firebase";
+
+import firebase, { initializeApp } from "firebase/app";
+import { getDatabase,  set, } from "firebase";
+
+/*import firebase from "firebase";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDUF3nnsFMV73_hN-j3W9ZC72XGDnef5gc",
@@ -14,3 +18,26 @@ const firebaseConfig = {
 
   const database = firebase.database();
   database.ref().set({title : "blog title 1"}); 
+  */
+  const firebaseConfig = {
+    apiKey: "AIzaSyBhst8QF4newLYGXcVvlP3DfI--Q-r6gEU",
+    authDomain: "blogs-f61b5.firebaseapp.com",
+    databaseURL: "https://blogs-f61b5-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "blogs-f61b5",
+    storageBucket: "blogs-f61b5.appspot.com",
+    messagingSenderId: "796529302687",
+    appId: "1:796529302687:web:e10136a86732f13a4b96aa"
+  };
+  
+  // Initialize Firebase
+   const app = initializeApp(firebaseConfig);
+
+   const database = firebase.database();
+
+   database.ref().set({
+    title: 'BLOK TITLE DENEME'
+   });
+
+
+
+  

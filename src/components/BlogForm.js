@@ -1,60 +1,64 @@
 import React, { Component } from 'react'
 
+
 export default class BlogForm extends Component {
-  constructor (props){
-    super(props);
-    this.state={title:props.blog? props.blog.title :'',
-    description:props.blog? props.blog.description : '',
-    error:''}
+constructor(props) {
+  super(props);
+  this.state = {
+      title: props.blog? props.blog.title: '',
+      description: props.blog ? props.blog.description: '',
+      error: ''
   }
-  
+}
 
-onTitleChange =(e)=>{
+onTitleChange = (e) => {
   const title = e.target.value;
-  this.setState (()=>({
-    title
-  }))
+  this.setState(()=> ({ title }));
 }
-onDescriptionChange= (e)=> {
+
+onDescriptionChange = (e) => {
   const description = e.target.value;
-  this.setState (()=>({
-    description
-  }))
+  this.setState(() => ({ description }));
 }
 
-onSubmit=(e)=>{
+onSubmit = (e) => {
   e.preventDefault();
-  if(!this.state.title || !this.state.description){
-    this.setState({error: 'Fill the Blanks Please'});
-  }else{
-    this.setState({error: ''});
-    this.props.onSubmit({
-      title:this.state.title,
-      description:this.state.description,
-      dateAdded : Date.now()
+
+  if(!this.state.title || !this.state.description) {
+     this.setState({error: 'Endet Requairment places.'});
+  } else {
+      this.setState({error: ''});
       
-
-    });
-    
+      this.props.onSubmit({
+          title: this.state.title,
+          description: this.state.description,
+          dateAdded: Date.now()
+      });
   }
-
 }
-  render() {
 
-    return (
+render() {
+  return (
       <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onSubmit}>
-          <div>
-            <input  placeholder='fill Title' value={this.state.title} onChange={this.onTitleChange}/>
-
-          </div>
-          <div>
-            <textarea placeholder='Enter description' value={this.state.description} onChange={this.onDescriptionChange}></textarea>
-          </div>
-          <button type="submit">ADD BLOG</button>
-        </form>
+          {this.state.error && <p>{this.state.error}</p>}
+          <form onSubmit={this.onSubmit}>
+              <div>
+                  <input 
+                      placeholder="enter title" 
+                      value={this.state.title}
+                      onChange={this.onTitleChange}/>
+              </div>
+              <div>
+                  <textarea
+                      placeholder="enter description"
+                      value={this.state.description}
+                      onChange={this.onDescriptionChange}></textarea>
+              </div>
+              <div>
+                  <button type="submit">Save Changes</button>
+              </div>
+          </form>
       </div>
-    )
-  }
+  )
+}
 }
