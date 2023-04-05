@@ -28,13 +28,13 @@ onSubmit=(e)=>{
     this.setState({error: 'Fill the Blanks Please'});
   }else{
     this.setState({error: ''});
-    this.props.onSubmite({
+    this.props.onSubmit({
       title:this.state.title,
       description:this.state.description,
       dateAdded : Date.now()
       
 
-    })
+    });
     
   }
 

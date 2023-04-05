@@ -9,7 +9,7 @@ const EditBlogPage = (props) => {
          <h1>Edit  Blog PAge</h1>
          <BlogForm blog={props.blog}
          onSubmit = {(blog)=>{
-            props.dispatch(props.blog.id,blog);
+            props.dispatch(editBlog(props.blog.id, blog));
             props.history.push('/blogs');
          }}
          />
