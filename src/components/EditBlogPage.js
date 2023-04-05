@@ -1,12 +1,18 @@
 import React from 'react'
 import BlogForm from './BlogForm'
 import {  connect } from 'react-redux'
+import { editBlog } from '../actions/blogs'
 
 const EditBlogPage = (props) => {
   return (
     <div>
          <h1>Edit  Blog PAge</h1>
-         <BlogForm blog={props.blog}/>
+         <BlogForm blog={props.blog}
+         onSubmit = {(blog)=>{
+            props.dispatch(props.blog.id,blog);
+            props.history.push('/blogs');
+         }}
+         />
 
 
     </div>
