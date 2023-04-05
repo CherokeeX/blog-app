@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
   return (
  <>
  <li key={id} >
-{title} - <Link to={`/blogs/${id}`}> Details</Link>
+{title} - <Link to={`/blogs/${id}`}> Details</Link> -<Link to={`/edit/${id}`}> Edit Blog</Link>
  </li>
  </>
   )
 }   
 
 export default BlogListItems;
+  
