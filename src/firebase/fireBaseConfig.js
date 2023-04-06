@@ -85,3 +85,13 @@ database.ref("author").update({
   name: 'Mikail'
 })
 
+database.ref().once('value',(snapshot)=>{
+  const blog = snapshot.val();
+  console.log(blog);
+
+})
+
+database.ref().on('value',(snapshot)=>{
+  const b =snapshot.val();
+  console.log(b);
+})
