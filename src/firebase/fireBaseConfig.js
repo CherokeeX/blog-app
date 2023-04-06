@@ -64,5 +64,14 @@ database.ref('title').remove()
   console.log(' removed');
 })
 
+database.ref().update({
+  title:'birthday'
+})
 
+database.ref().update({
+  author:{
+    name : 'onur',
+    sirname: 'Badi'
+  }
+})
   
