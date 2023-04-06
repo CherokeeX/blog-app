@@ -59,6 +59,10 @@ const firebaseConfig = {
 
 console.log("uygulama  calisti");
 
+database.ref('title').remove()
+.then(()=>{
+  console.log('succeseed removed');
+})
 
 
   
