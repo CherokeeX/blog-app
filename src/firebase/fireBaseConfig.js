@@ -95,3 +95,14 @@ database.ref().on('value',(snapshot)=>{
   const b =snapshot.val();
   console.log(b);
 })
+
+setTimeout(()=>{
+  database.ref('title').set('new updated Title1')
+},3000);
+
+setTimeout(()=>{
+  database.ref('title').set('new updated Title23')
+},6000);
+setTimeout(()=>{
+  database.ref('title').set('new updated Title3')
+},9000)
