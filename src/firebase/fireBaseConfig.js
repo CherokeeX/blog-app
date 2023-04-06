@@ -61,7 +61,7 @@ console.log("uygulama  calisti");
 
 database.ref('title').remove()
 .then(()=>{
-  console.log('succeseed removed');
+  console.log(' removed');
 })
 
 
