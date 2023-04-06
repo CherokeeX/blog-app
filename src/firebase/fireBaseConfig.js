@@ -71,7 +71,13 @@ database.ref().update({
 database.ref().update({
   author:{
     name : 'onur',
-    sirname: 'Badi'
+    sirname: 'badi'
   }
+})
+database.ref().update({
+  title:'new blog name',
+  "author/name": "mira",
+  imageUrl:"1.jpeg"
+
 })
   
