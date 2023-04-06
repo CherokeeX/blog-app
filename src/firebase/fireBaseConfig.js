@@ -42,7 +42,11 @@ const firebaseConfig = {
       soyisim : 'Badi '
     }
     
-   });
+   })
+
+   .then(()=>{
+    console.log('kayit  eklendi')
+   })
 
 
 
