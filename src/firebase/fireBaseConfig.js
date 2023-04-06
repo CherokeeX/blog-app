@@ -81,3 +81,7 @@ database.ref().update({
 
 })
   
+database.ref("author").update({
+  name: 'Mikail'
+})
+
