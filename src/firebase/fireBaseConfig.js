@@ -39,14 +39,25 @@ const firebaseConfig = {
     ADRES : 'CEMAL PASA MH ',
     Auther:  {
       isim : "seref",
-      soyisim : 'Badi '
-    }
+      soyisim : 'Badi ',
+      BABA : 'Mustafa'
+    },
+    OKUL : 'CUKUROVA'
     
    })
 
    .then(()=>{
-    console.log('kayit  eklendi')
+    console.log('kayit  eklendi');
+    database.ref('TAGS').set(['anguler','flutters','react'])
    })
+   .then(()=>{
+    console.log('tags has been repalced')
+   })
+.catch((e)=>{
+  console.log('hata alindi', e);
+})
+
+console.log("uygulama  calisti");
 
 
 
