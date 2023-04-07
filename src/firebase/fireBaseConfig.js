@@ -102,6 +102,27 @@ database.ref().set({
 
 })
 
-database.ref('blog/x').once('value',(snapshot)=> {
+database.ref('blog/x').on('value',(snapshot)=> {
   console.log(snapshot.val())
 })
+
+database.ref('blog').push({
+  title : "blog title 33",
+  id : "3"
+})
+
+database.ref('products').push({
+  name: "iphone 13",
+  price: "40000",
+  isAprood : true
+});
+database.ref('products').push({
+  name: "iphone 14",
+  price: "50000",
+  isAprood : true
+});
+database.ref('products').push({
+  name: "iphone 14 pro max",
+  price: "75000",
+  isAprood : true
+});
