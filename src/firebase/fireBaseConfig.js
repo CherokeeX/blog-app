@@ -47,62 +47,13 @@ const firebaseConfig = {
    })
 
    .then(()=>{
-    console.log('kayit  eklendi');
+    
     database.ref('TAGS').set(['anguler','flutters','react'])
    })
    .then(()=>{
-    console.log('tags has been repalced')
+    
    })
 .catch((e)=>{
   console.log('hata alindi', e);
 })
 
-console.log("uygulama  calisti");
-
-database.ref('title').remove()
-.then(()=>{
-  console.log(' removed');
-})
-
-database.ref().update({
-  title:'birthday'
-})
-
-database.ref().update({
-  author:{
-    name : 'onur',
-    sirname: 'badi'
-  }
-})
-database.ref().update({
-  title:'new blog name',
-  "author/name": "mira",
-  imageUrl:"1.jpeg"
-
-})
-  
-database.ref("author").update({
-  name: 'Mikail'
-})
-
-database.ref().once('value',(snapshot)=>{
-  const blog = snapshot.val();
-  console.log(blog);
-
-})
-
-database.ref().on('value',(snapshot)=>{
-  const b =snapshot.val();
-  console.log(b);
-})
-
-setTimeout(()=>{
-  database.ref('title').set('new updated Title1')
-},3000);
-
-setTimeout(()=>{
-  database.ref('title').set('new updated Title23')
-},6000);
-setTimeout(()=>{
-  database.ref('title').set('new updated Title3')
-},9000)
