@@ -130,4 +130,4 @@ setTimeout(()=>{database.ref('title').set('updeted new title3')}, 10000)
 database.ref("products").once('value', (snapshot)=>{
   const products = snapshot.val();
   console.log(products);
-})
+})    
