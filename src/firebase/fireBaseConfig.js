@@ -67,4 +67,6 @@ database.ref().on('value' , (snapshot)=>{
   console.log(blog)
 })
 
-setTimeout(()=>{database.ref('title').set('updeted new title')}, 4000)
+setTimeout(()=>{database.ref('title').set('updeted new title1')}, 4000);
+setTimeout(()=>{database.ref().off()}, 6000);
+setTimeout(()=>{database.ref('title').set('updeted new title3')}, 10000)
