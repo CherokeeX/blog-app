@@ -57,3 +57,14 @@ const firebaseConfig = {
   console.log('hata alindi', e);
 })
 
+/*database.ref('Auther/BABA').once('value').then((snapshot)=>{
+  const blog = snapshot.val();
+  console.log(blog);
+})*/
+
+database.ref().on('value' , (snapshot)=>{
+  const blog = snapshot.val();
+  console.log(blog)
+})
+
+setTimeout(()=>{database.ref('title').set('updeted new title')}, 4000)
