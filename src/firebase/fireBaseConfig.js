@@ -73,56 +73,56 @@ setTimeout(()=>{database.ref('title').set('updeted new title3')}, 10000)
 */
 
 
-const blog = {
-  x : {
-    id: "1",
-    Title: 'deneme title'
-   },
-   y : {
-    id: "2",
-    Title: 'deneme title 2'
-   },
-}
+// const blog = {
+//   x : {
+//     id: "1",
+//     Title: 'deneme title'
+//    },
+//    y : {
+//     id: "2",
+//     Title: 'deneme title 2'
+//    },
+// }
   
-const users = {
-  'Seref Badi ' : {
-    name: 'Seref',
-    sirname : 'Badi'
-  },
-  'Onur Badi ' : {
-    name: 'Onur',
-    sirname : 'Badi'
-  }
+// const users = {
+//   'Seref Badi ' : {
+//     name: 'Seref',
+//     sirname : 'Badi'
+//   },
+//   'Onur Badi ' : {
+//     name: 'Onur',
+//     sirname : 'Badi'
+//   }
 
-}
+// }
 
-database.ref().set({
-  blog: blog,
-  users: users
+// database.ref().set({
+//   blog: blog,
+//   users: users
 
-})
+// })
 
-database.ref('blog/x').on('value',(snapshot)=> {
-  console.log(snapshot.val())
-})
+// database.ref('blog/x').on('value',(snapshot)=> {
+//   console.log(snapshot.val())
+// })
 
-database.ref('blog').push({
-  title : "blog title 33",
-  id : "3"
-})
+// database.ref('blog').push({
+//   title : "blog title 33",
+//   id : "3"
+// })
 
-database.ref('products').push({
-  name: "iphone 13",
-  price: "40000",
-  isAprood : true
-});
-database.ref('products').push({
-  name: "iphone 14",
-  price: "50000",
-  isAprood : true
-});
-database.ref('products').push({
-  name: "iphone 14 pro max",
-  price: "75000",
-  isAprood : true
-});
+// database.ref('products').push({
+//   name: "iphone 13",
+//   price: "40000",
+//   isAprood : true
+// });
+// database.ref('products').push({
+//   name: "iphone 14",
+//   price: "50000",
+//   isAprood : true
+// });
+// database.ref('products').push({
+//   name: "iphone 14 pro max",
+//   price: "75000",
+//   isAprood : true
+// });
