@@ -73,39 +73,35 @@ setTimeout(()=>{database.ref('title').set('updeted new title3')}, 10000)
 */
 
 
-const blog = [
-  {
-    id : 1,
-    title: 1
+const blog = {
+  x : {
+    id: "1",
+    Title: 'deneme title'
+   },
+   y : {
+    id: "2",
+    Title: 'deneme title 2'
+   },
+}
+  
+const users = {
+  'Seref Badi ' : {
+    name: 'Seref',
+    sirname : 'Badi'
   },
-  {
-    id : 2,
-    title: 2
-  },
-  {
-    id : 3,
-    title: 3
+  'Onur Badi ' : {
+    name: 'Onur',
+    sirname : 'Badi'
   }
-]
 
-database.ref().set(blog);
-
-const  users = [
-  {
-    id: 1 ,
-    name: 'Seref'
-  } ,
-  {
-    id: 2 ,
-    name: 'Onur'
-  },
-  {
-    id: 3 ,
-    name: 'Mira'
-  }
-]
+}
 
 database.ref().set({
   blog: blog,
   users: users
+
+})
+
+database.ref('blog/x').once('value',(snapshot)=> {
+  console.log(snapshot.val())
 })
