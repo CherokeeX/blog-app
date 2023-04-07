@@ -1,6 +1,7 @@
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import blogReducer from '../reducers/blogs';
 import authReducer from '../reducers/auth';
+import thunk from 'redux-thunk';
 
 export default  () => {
     const store = createStore(

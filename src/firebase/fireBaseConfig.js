@@ -153,8 +153,19 @@ setTimeout(()=>{database.ref('title').set('updeted new title3')}, 10000)
 
 // })
 
-database.ref("products").on('child_removed',(snapshot)=>{
-  console.log(snapshot.key, snapshot.val())
+// database.ref('products').push({
+//      name: "iphone 14 pro max",
+//     price: "75000",
+//     isAprood : true})
 
-})
+// database.ref("products").on('child_removed',(snapshot)=>{
+//   console.log(snapshot.key, snapshot.val())
+
+// })
   
+// database.ref("products").on('child_added',(snapshot)=>{
+//   console.log(snapshot.key, snapshot.val())
+
+// })
+
+export {database as default}
