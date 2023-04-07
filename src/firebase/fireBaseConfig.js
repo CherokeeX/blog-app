@@ -139,17 +139,22 @@ setTimeout(()=>{database.ref('title').set('updeted new title3')}, 10000)
 //   console.log(products)
 // });
 
-database.ref('products').on('value',(snapshot)=>{
+// database.ref('products').on('value',(snapshot)=>{
   
-  const products = [];
-  snapshot.forEach((product)=>{
-    products.push({
-      id: product.key,
-      ...product.val( )
-    })
-  })
-  console.log(products);
+//   const products = [];
+//   snapshot.forEach((product)=>{
+//     products.push({
+//       id: product.key,
+//       ...product.val( )
+//     })
+//   })
+//   console.log(products);
 
+
+// })
+
+database.ref("products").on('child_removed',(snapshot)=>{
+  console.log(snapshot.key, snapshot.val())
 
 })
   
