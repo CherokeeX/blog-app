@@ -126,3 +126,8 @@ setTimeout(()=>{database.ref('title').set('updeted new title3')}, 10000)
 //   price: "75000",
 //   isAprood : true
 // });
+
+database.ref("products").once('value', (snapshot)=>{
+  const products = snapshot.val();
+  console.log(products);
+})
