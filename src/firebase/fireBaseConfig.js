@@ -34,7 +34,7 @@ const firebaseConfig = {
 
    const database = firebase.database();
 
-   database.ref().set({
+   /*database.ref().set({
     title: 'BLOK TITLE DENEME',
     ADRES : 'CEMAL PASA MH ',
     Auther:  {
@@ -61,7 +61,7 @@ const firebaseConfig = {
   const blog = snapshot.val();
   console.log(blog);
 })*/
-
+/*
 database.ref().on('value' , (snapshot)=>{
   const blog = snapshot.val();
   console.log(blog)
@@ -70,3 +70,42 @@ database.ref().on('value' , (snapshot)=>{
 setTimeout(()=>{database.ref('title').set('updeted new title1')}, 4000);
 setTimeout(()=>{database.ref().off()}, 6000);
 setTimeout(()=>{database.ref('title').set('updeted new title3')}, 10000)
+*/
+
+
+const blog = [
+  {
+    id : 1,
+    title: 1
+  },
+  {
+    id : 2,
+    title: 2
+  },
+  {
+    id : 3,
+    title: 3
+  }
+]
+
+database.ref().set(blog);
+
+const  users = [
+  {
+    id: 1 ,
+    name: 'Seref'
+  } ,
+  {
+    id: 2 ,
+    name: 'Onur'
+  },
+  {
+    id: 3 ,
+    name: 'Mira'
+  }
+]
+
+database.ref().set({
+  blog: blog,
+  users: users
+})
